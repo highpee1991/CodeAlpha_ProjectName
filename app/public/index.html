@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-env="development">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevOps Status</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <p class="greeting" id="greeting">Hello</p>
+
+    <section class="hero" aria-label="Deployed version">
+      <p class="hero-label">Running version</p>
+      <h1 id="version">v–</h1>
+    </section>
+
+    <dl class="facts">
+      <div class="row">
+        <dt>Environment</dt>
+        <dd id="environment">Loading</dd>
+      </div>
+      <div class="row">
+        <dt>Container hostname</dt>
+        <dd id="hostname">Loading</dd>
+      </div>
+      <div class="row">
+        <dt>Health check</dt>
+        <dd>
+          <span class="dot" id="dot" aria-hidden="true"></span>
+          <span id="health">Checking</span>
+          <span class="muted" id="latency"></span>
+        </dd>
+      </div>
+      <div class="row">
+        <dt>Uptime</dt>
+        <dd id="uptime">Loading</dd>
+      </div>
+      <div class="row">
+        <dt>Node.js</dt>
+        <dd id="node">Loading</dd>
+      </div>
+    </dl>
+
+    <p class="footnote">Health is re-checked every 5 seconds from <a href="/health">/health</a>.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

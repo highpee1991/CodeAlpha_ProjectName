@@ -1,0 +1,116 @@
+/* Change --bg / --fg below (or the version in package.json) and redeploy
+   to see the new container image go live. */
+
+:root {
+  --bg: #1f2a44;
+  --fg: #f3f5fa;
+  --muted: rgba(243, 245, 250, 0.65);
+  --line: rgba(243, 245, 250, 0.25);
+  --ok: #4ade80;
+  --bad: #ff6b5e;
+}
+
+[data-env="production"] {
+  --bg: #0d3b2e;
+  --fg: #eaf6ef;
+  --muted: rgba(234, 246, 239, 0.65);
+  --line: rgba(234, 246, 239, 0.25);
+}
+
+[data-env="staging"] {
+  --bg: #f2b134;
+  --fg: #2a1d00;
+  --muted: rgba(42, 29, 0, 0.7);
+  --line: rgba(42, 29, 0, 0.3);
+  --ok: #0b6b2f;
+  --bad: #a31a0d;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  transition: background 0.3s;
+}
+
+main {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+.greeting {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+
+.hero { margin: clamp(2rem, 8vw, 5rem) 0; }
+
+.hero-label {
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(5rem, 24vw, 13rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
+}
+
+.facts { margin: 0; border-top: 2px solid var(--fg); }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+dt { color: var(--muted); }
+
+dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.muted { color: var(--muted); font-weight: 400; margin-left: 0.4rem; }
+
+.dot {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.dot.ok { background: var(--ok); }
+.dot.bad { background: var(--bad); }
+
+.footnote { margin: 1.5rem 0 0; font-size: 0.9rem; color: var(--muted); }
+.footnote a { color: inherit; }
+
+a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+@media (max-width: 30rem) {
+  .row { flex-direction: column; gap: 0.1rem; }
+  dd { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
