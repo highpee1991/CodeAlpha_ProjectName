@@ -34,3 +34,9 @@ variable "container_image_tag" {
   type        = string
   default     = "latest"
 }
+
+variable "subscription_id" {
+  description = "Azure subscription ID"
+  type        = string
+  default     = "90dcdcc1-3cb4-43ff-aa00-f592a85fe40f"
+}
