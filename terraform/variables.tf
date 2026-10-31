@@ -2,7 +2,7 @@ variable "location" {
   description = "The Azure region for the application infrastructure resources."
   type        = string
   default     = "East US"
-  
+
 }
 
 variable "project_name" {
