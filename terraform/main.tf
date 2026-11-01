@@ -60,6 +60,9 @@ resource "azurerm_linux_web_app" "main" {
 
   https_only = true
 
+  ftp_publish_basic_authentication_enabled       = false
+  webdeploy_publish_basic_authentication_enabled = false
+
   identity {
     type = "SystemAssigned"
   }
@@ -78,11 +81,11 @@ resource "azurerm_linux_web_app" "main" {
 
 
   app_settings = {
-  WEBSITES_PORT                       = "3000"
-  WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-  APP_ENV                             = var.environment
-  APP_VERSION                         = "1.0.0"
-}
+    WEBSITES_PORT                       = "3000"
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+    APP_ENV                             = var.environment
+    APP_VERSION                         = "1.0.0"
+  }
 
   tags = {
     Project     = var.project_name
