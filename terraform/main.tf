@@ -78,11 +78,11 @@ resource "azurerm_linux_web_app" "main" {
 
 
   app_settings = {
-    WEBSITE_PORT                       = "3000"
-    WEBSITE_ENABLE_APP_SERVICE_STORAGE = "false"
-    APP_ENV                            = var.environment
-    APP_VERSION                        = "1.0.0"
-  }
+  WEBSITES_PORT                       = "3000"
+  WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+  APP_ENV                             = var.environment
+  APP_VERSION                         = "1.0.0"
+}
 
   tags = {
     Project     = var.project_name
