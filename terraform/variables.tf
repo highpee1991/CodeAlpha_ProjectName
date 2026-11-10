@@ -32,7 +32,7 @@ variable "container_image_name" {
 variable "container_image_tag" {
   description = "Docker image tag"
   type        = string
-  default     = "latest"
+  default     = "1.0.0"
 }
 
 variable "subscription_id" {
