@@ -5,3 +5,5 @@ npm-debug.log
 *.tfstate
 *.tfstate.*
 *.tfvars
+*.tfplan
+tfplan
