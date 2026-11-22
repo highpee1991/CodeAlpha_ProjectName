@@ -1,8 +1,18 @@
-node_modules
+node_modules/
 npm-debug.log
-.git
+.git/
 .gitignore
 .env
 Dockerfile
 .dockerignore
 README.md
+
+# Terraform files are not required inside the application image
+terraform/
+
+# Terraform state and plan files
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfplan
+tfplan
