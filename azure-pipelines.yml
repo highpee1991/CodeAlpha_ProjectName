@@ -51,25 +51,37 @@ stages:
               inlineScript: |
                 set -e
 
-                echo "Configuring App Service to use managed identity..."
+                echo "Configuring App Service with the full ACR image path..."
+
                 az webapp config set \
                   --resource-group rg-codealpha-dev \
                   --name app-codealpha-92njum \
+                  --linux-fx-version "DOCKER|$(containerRegistry)/$(imageRepository):$(tag)" \
                   --acr-use-identity true \
                   --acr-identity '[system]'
 
-                echo "Updating the container image..."
-                az webapp config container set \
-                  --resource-group rg-codealpha-dev \
-                  --name app-codealpha-92njum \
-                  --container-image-name "$(imageRepository):$(tag)" \
-                  --container-registry-url "https://$(containerRegistry)" \
-                  --enable-app-service-storage false
-
                 echo "Restarting App Service..."
+
                 az webapp restart \
                   --resource-group rg-codealpha-dev \
                   --name app-codealpha-92njum
 
-                echo "Deployment commands completed."
-                echo "Image: $(containerRegistry)/$(imageRepository):$(tag)"
+                echo "Waiting for application health check..."
+
+                for attempt in {1..18}; do
+                  status=$(curl -sS -o /tmp/health-response -w "%{http_code}" \
+                    https://app-codealpha-92njum.azurewebsites.net/health || true)
+
+                  if [ "$status" = "200" ]; then
+                    echo "Application is healthy!"
+                    cat /tmp/health-response
+                    exit 0
+                  fi
+
+                  echo "Attempt $attempt: HTTP $status. Waiting..."
+                  sleep 10
+                done
+
+                echo "Application failed its health check."
+                cat /tmp/health-response || true
+                exit 1
