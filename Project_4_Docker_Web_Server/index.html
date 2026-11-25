@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CloudOps Web Server: a simple web server deployed inside a Docker container.">
+  <title>CloudOps Web Server</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">CloudOps Web Server</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#project">Project</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#info">Details</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>CloudOps Web Server</h1>
+          <p class="subtitle">A simple web server deployed inside a Docker container.</p>
+          <p class="lead">This project demonstrates how to package a web server using Docker, run it as a container, expose it to the browser, and monitor its health.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#project">View Project</a>
+            <a class="btn btn-secondary" href="#workflow">Docker Workflow</a>
+          </div>
+        </div>
+
+        <div class="terminal" aria-label="Example Docker commands">
+          <div class="terminal-bar"><span></span><span></span><span></span></div>
+<pre><code><span class="muted">$</span> docker build -t cloudops-web .
+<span class="muted">$</span> docker run -d --name cloudops \
+    -p 8080:80 cloudops-web
+<span class="muted">$</span> docker ps
+<span class="out">cloudops   Up 12s (<span class="ok">healthy</span>)   0.0.0.0:8080-&gt;80/tcp</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="section">
+      <div class="container">
+        <h2>Project overview</h2>
+        <p class="section-intro">Three ideas make up this deployment.</p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Containerization</h3>
+            <p>The website is packaged into a Docker image and runs inside an isolated container.</p>
+          </article>
+          <article class="card">
+            <h3>Web Server</h3>
+            <p>Nginx serves the website and makes it accessible through a mapped host port.</p>
+          </article>
+          <article class="card">
+            <h3>Health Monitoring</h3>
+            <p>Docker health checks help verify whether the web server is responding correctly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section section-alt">
+      <div class="container">
+        <h2>Docker workflow</h2>
+        <p class="section-intro">From files on disk to a page in the browser, in five steps.</p>
+        <ol class="flow">
+          <li class="step">
+            <span class="step-num">1</span>
+            <h3>Website Files</h3>
+            <p>The index.html and styles.css files that make up the site.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <h3>Docker Image</h3>
+            <p>A Dockerfile copies the files into an Nginx image, a read-only template.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <h3>Docker Container</h3>
+            <p>Running the image starts a container, an isolated instance of it.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">4</span>
+            <h3>Nginx Web Server</h3>
+            <p>Nginx inside the container listens on port 80 and serves the files.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">5</span>
+            <h3>Browser</h3>
+            <p>Host port 8080 maps to the container, so the site opens at localhost:8080.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="info" class="section">
+      <div class="container info-grid">
+        <div>
+          <h2>Technologies</h2>
+          <p class="section-intro">Only a handful of tools, with no build step.</p>
+          <ul class="chips">
+            <li>Docker</li>
+            <li>Nginx</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+
+        <aside class="panel" aria-label="Project information">
+          <h3>Project information</h3>
+          <dl>
+            <div><dt>Project Name</dt><dd>CloudOps Web Server</dd></div>
+            <div><dt>Deployment</dt><dd>Docker Container</dd></div>
+            <div><dt>Web Server</dt><dd>Nginx</dd></div>
+            <div><dt>Container Port</dt><dd>80</dd></div>
+            <div><dt>Host Port</dt><dd>8080</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Built as part of my Cloud and DevOps learning journey.</p>
+      <a href="https://github.com/your-username/cloudops-web-server" rel="noopener">GitHub repository</a>
+    </div>
+  </footer>
+
+</body>
+</html>
