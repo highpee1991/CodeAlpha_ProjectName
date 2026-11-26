@@ -1,5 +1,7 @@
 # CloudOps Web Server: Dockerized Nginx Web Server
 
+![flowchat](docs/screenshots/flowchat.png)
+
 ## Project Overview
 
 This project demonstrates how I containerized a static website using Docker and Nginx.
@@ -21,14 +23,22 @@ I used Nginx because it is lightweight, reliable, and well suited for serving st
 ```text
 Project_4_Docker_Web_Server/
 │
+├── docs/
+│   └── screenshots/
+│       ├── container.PNG
+│       ├── curl css.PNG
+│       ├── curl.PNG
+│       ├── docker build.PNG
+│       ├── docker desktop container.PNG
+│       ├── docker destop image.PNG
+│       ├── docker health bash.PNG
+│       ├── flowchat.png
+│       └── website.PNG
+│
 ├── index.html
 ├── styles.css
 ├── Dockerfile
-├── README.md
-└── screenshots/
-    ├── website.png
-    ├── docker-container.png
-    └── verification.png
+└── README.md
 ```
 
 ## How It Works
@@ -89,6 +99,8 @@ docker build -t cloudops-web-server:1.0 .
 
 The command creates an image named `cloudops-web-server` with the tag `1.0`.
 
+![docker build](docs/screenshots/docker%20build.PNG)
+
 ## Running the Container
 
 I started the container using:
@@ -105,6 +117,8 @@ The port mapping is important:
 This means I can access the website from my browser at:
 
 http://localhost:8080
+
+![docker container](docs/screenshots/container.PNG)
 
 ## Verifying the Deployment
 
@@ -130,6 +144,8 @@ The expected result is:
 healthy
 ```
 
+![docker ps](docs/screenshots/docker%20health%20bash.PNG)
+
 **3. Test the website response**
 
 ```bash
@@ -138,6 +154,8 @@ curl http://localhost:8080
 
 This confirms that the web server returns the website's HTML content.
 
+![docker ps](docs/screenshots/curl.PNG)
+
 **4. Test the CSS file**
 
 ```bash
@@ -145,6 +163,8 @@ curl -I http://localhost:8080/styles.css
 ```
 
 The expected HTTP response is `200 OK`, confirming that Nginx can serve the stylesheet.
+
+![docker ps](docs/screenshots/curl%20css.PNG)
 
 ## Stopping and Removing the Container
 
