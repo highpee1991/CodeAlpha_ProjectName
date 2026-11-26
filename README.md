@@ -8,7 +8,7 @@ The projects focus on practical DevOps skills, including cloud infrastructure, c
 
 ### Project 1: Azure CI/CD Pipeline
 
-**Technologies:** Microsoft Azure, Docker, Terraform, Azure Container Registry (ACR), Azure App Service, Azure DevOps, GitHub Actions concepts.
+**Technologies:** Microsoft Azure, Docker, Terraform, Azure Container Registry (ACR), Azure App Service, Azure DevOps.
 
 In this project, I containerized a Node.js application and deployed it to Azure App Service. I used Terraform to provision the infrastructure and Azure DevOps to automate the build and deployment process.
 
@@ -17,10 +17,11 @@ In this project, I containerized a Node.js application and deployed it to Azure 
 
 ### Project 4: Web Server Using Docker
 
-**Technologies:** Docker, Nginx, HTML, CSS.
+**Technologies:** Docker, Nginx, HTML5, CSS3.
 
-This project focuses on building and running a web server inside a Docker container using Nginx. The website is built with HTML and CSS and served through a lightweight container image.
+In this project, I built a static website using HTML and CSS, packaged it into a Docker image using Nginx, and ran it as a container. I also configured a Docker health check and verified that the web server was serving the website correctly.
 
+- [View Project 4 documentation](./Project_4_Docker_Web_Server/README.md)
 - [View Project 4 files](./Project_4_Docker_Web_Server/)
 
 ## Repository Structure
@@ -38,8 +39,11 @@ CodeAlpha_ProjectName/
 │   └── README.md
 │
 ├── Project_4_Docker_Web_Server/
+│   ├── screenshots/
 │   ├── index.html
-│   └── styles.css
+│   ├── styles.css
+│   ├── Dockerfile
+│   └── README.md
 │
 └── README.md
 ```

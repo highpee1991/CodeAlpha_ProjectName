@@ -38,11 +38,10 @@
 
         <div class="terminal" aria-label="Example Docker commands">
           <div class="terminal-bar"><span></span><span></span><span></span></div>
-<pre><code><span class="muted">$</span> docker build -t cloudops-web .
-<span class="muted">$</span> docker run -d --name cloudops \
-    -p 8080:80 cloudops-web
+<pre><code><span class="muted">$</span> docker build -t cloudops-web-server:1.0 .
+<span class="muted">$</span> docker run -d --name cloudops-web-server -p 8080:80 cloudops-web-server:1.0
 <span class="muted">$</span> docker ps
-<span class="out">cloudops   Up 12s (<span class="ok">healthy</span>)   0.0.0.0:8080-&gt;80/tcp</span></code></pre>
+<span class="out">cloudops-web-server  Up (<span class="ok">healthy</span>)   0.0.0.0:8080-&gt;80/tcp</span></code></pre>
         </div>
       </div>
     </section>
@@ -134,7 +133,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <p>Built as part of my Cloud and DevOps learning journey.</p>
-      <a href="https://github.com/your-username/cloudops-web-server" rel="noopener">GitHub repository</a>
+      <a href="https://github.com/highpee1991/CodeAlpha_ProjectName/tree/main/Project_4_Docker_Web_Server" rel="noopener">GitHub repository</a>
     </div>
   </footer>
 
