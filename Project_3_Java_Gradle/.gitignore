@@ -1,0 +1,25 @@
+# Gradle cache and build output
+.gradle/
+**/build/
+
+# Gradle wrapper JAR is required and must be committed
+# Do not ignore gradle-wrapper.jar
+
+# Java compiled files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Operating system files
+.DS_Store
+Thumbs.db
